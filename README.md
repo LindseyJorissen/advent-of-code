@@ -19,3 +19,22 @@ Each folder may include:
 
 - **Input Files and Resources:**  
   - All input data and any necessary resources for each day's challenge.
+ 
+## How to Run My Code
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/LindseyJorissen/Advent-of-Code-2024.git
+```
+
+2. **Navigate to your project folder:**
+   
+3. **Run the Python script for a specific day (e.g., Day 1):**
+
+```bash
+python Day_1/main.py
+```
+
+
+
