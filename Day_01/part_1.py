@@ -25,5 +25,6 @@ def main():
     difference = calculate_differences(left_column, right_column)
     print(sum(difference))
 
-main()
+if __name__ == '__main__':
+    main()
     
