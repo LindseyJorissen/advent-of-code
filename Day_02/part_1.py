@@ -5,38 +5,24 @@ def read_input_file(filename):
             reports.append(line.strip())
     return reports
 
-def safety_check(reports):
-    safety_check_list = [False] * len(reports)
+def is_safe(reports):
+    safe_reports = []
+    unsafe_reports = []
     for i in range(len(reports)):
-        check_counter = 0
-        test_list = reports[i].split()
-        int_list = list(map(int, test_list))
-        if int_list == sorted(int_list) or int_list == sorted(int_list, reverse=True):
-            check_counter += 1
-        if check_counter == 0:
-            continue
-        else:
-            for j in range(len(int_list) - 1):
-                diff = int_list[j+1] - int_list[j]
-                if (1 <= diff <= 3 or -3 <= diff <= -1):
-                    continue
-                else:
-                    break
-            else:
-                safety_check_list[i] = True
-    return safety_check_list
+        int_list = list(map(int, reports[i].split()))
+        if int_list == sorted(int_list):
+            if all(1 <= int_list[i + 1] - int_list[i] <= 3 for i in range(len(int_list) - 1)):
+                safe_reports.append(int_list)
+        if int_list == sorted(int_list, reverse=True):
+            if all(1 <= int_list[j] - int_list[j + 1] <= 3 for j in range(len(int_list) - 1)):
+                safe_reports.append(int_list)
+        unsafe_reports.append(int_list)
+    return safe_reports, unsafe_reports
 
 def main():
     filename = "input.txt"
     reports = read_input_file(filename)
-    safety_check_list = safety_check(reports)
-    safecounter = sum(safety_check_list)
-    print(safecounter)
+    safe_reports, unsafe_reports = is_safe(reports)
+    print(f"Part 1: {len(safe_reports)} safe reports,{len(unsafe_reports)} unsafe reports ")
 
 main()
-
-
-
-
-
-
