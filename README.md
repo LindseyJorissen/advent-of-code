@@ -33,7 +33,7 @@ git clone https://github.com/LindseyJorissen/Advent-of-Code-2024.git
 3. **Run the Python script for a specific day (e.g., Day 1):**
 
 ```bash
-python Day_1/main.py
+python Day_1/part_1.py
 ```
 
 
