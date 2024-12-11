@@ -37,7 +37,7 @@ def can_become_safe_by_removing_one(unsafe_reports):
 
             else:
                 is_safe = False
-                
+
             if is_safe:
                 updated_safe_reports.append(modified_report)
                 break
