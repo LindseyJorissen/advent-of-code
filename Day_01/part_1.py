@@ -3,7 +3,7 @@ Within each pair, figure out how far apart the two numbers are
 and add up all of those distances."""
 
 def read_input_file(filename):
-    """read inputfile with puzzle input, return two lists. One for the left and one for the right column"""
+    """read inputfile with puzzle input, return two lists. One for the left and one for the right column. """
     left_column = []
     right_column = []
     with open(filename, "r") as inputfile:

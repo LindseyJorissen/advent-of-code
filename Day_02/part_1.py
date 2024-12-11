@@ -1,4 +1,11 @@
+"""Advent of Code Day 2 -  Reads a list of reports from a file,each report contains a sequence of integers.
+Check which reports are "safe" and which are "unsafe" based on 2 parameters:
+1. A report is safe if its integers are sorted (ascending or descending order).
+2. The difference between consecutive numbers must be between 1 and 3.
+Outputs the number of safe and unsafe reports. """
+
 def read_input_file(filename):
+    """read inputfile with puzzle input and return a list of strings containing each line"""
     reports = []
     with open(filename, "r") as inputfile:
         for line in inputfile:
@@ -6,6 +13,7 @@ def read_input_file(filename):
     return reports
 
 def is_safe(reports):
+    """Checks each level/line by the parameters, returns two lists. One for safe and one for unsafe reports"""
     safe_reports = []
     unsafe_reports = []
     for i in range(len(reports)):

@@ -1,8 +1,11 @@
+"""Advent of Code Day 2 - Introducing a new condition:
+Attempt to make unsafe reports safe by removing one integer from each report."""
 from part_1 import read_input_file,is_safe
 
 def can_become_safe_by_removing_one(unsafe_reports):
+    """ Attempt to convert unsafe reports into safe ones by removing one integer from each report.
+    And returning an updated safe-list"""
     updated_safe_reports = []
-    updated_unsafe_reports = []
     for report in unsafe_reports:
         found_safe = False
         for i in range(len(report)):
@@ -15,15 +18,13 @@ def can_become_safe_by_removing_one(unsafe_reports):
                     updated_safe_reports.append(modified_report)
                     found_safe = True
                     break
-        if not found_safe:
-            updated_unsafe_reports.append(report)
-    return updated_safe_reports, updated_unsafe_reports
+    return updated_safe_reports
 
 def main():
     filename = "input.txt"
     reports = read_input_file(filename)
-    safe_reports,unsafe_reports = is_safe(reports)
-    updated_safe_reports,updated_unsafe_reports = can_become_safe_by_removing_one(unsafe_reports)
+    unsafe_reports = is_safe(reports)
+    updated_safe_reports= can_become_safe_by_removing_one(unsafe_reports)
     print(f"Part 2: New amount of safe reports: {len(updated_safe_reports)}")
 
 main()

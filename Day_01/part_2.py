@@ -1,6 +1,7 @@
-"""Calculate a 'similarity score' by counting how often each number from the left list
+"""Advent of Code Day 1 - Calculate a 'similarity score' by counting how often each number from the left list
 appears in the right list and summing the products of each number in the left list with
 its occurrence amount in the right list."""
+
 from part_1 import read_input_file
 
 def count_occurrence(left_column, right_column):
