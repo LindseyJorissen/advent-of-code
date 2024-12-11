@@ -32,5 +32,5 @@ def main():
     input = read_input_file(filename)
     if input:
         results, total = find_mul(input)
-        print("Total:", total)
+        print("Total Part 1:", total)
 main()
