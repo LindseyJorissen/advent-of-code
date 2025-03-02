@@ -4,6 +4,7 @@ Check which reports are "safe" and which are "unsafe" based on 2 parameters:
 2. The difference between consecutive numbers must be between 1 and 3.
 Outputs the number of safe and unsafe reports. """
 
+
 def read_input_file(filename):
     """read inputfile with puzzle input and return a list of strings containing each line"""
     reports = []
@@ -11,6 +12,7 @@ def read_input_file(filename):
         for line in inputfile:
             reports.append(line.strip())
     return reports
+
 
 def is_safe(reports):
     """Checks each level/line by the parameters, returns two lists. One for safe and one for unsafe reports"""
@@ -27,10 +29,12 @@ def is_safe(reports):
         unsafe_reports.append(int_list)
     return safe_reports, unsafe_reports
 
+
 def main():
     filename = "input.txt"
     reports = read_input_file(filename)
     safe_reports, unsafe_reports = is_safe(reports)
     print(f"Part 1: {len(safe_reports)} safe reports,{len(unsafe_reports)} unsafe reports ")
+
 
 main()
