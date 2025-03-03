@@ -20,40 +20,40 @@ def part1():
 def part2():
     santa_inst = []
     robot_inst = []
-    for index,inst in enumerate(instruction_list):
+
+    for index, inst in enumerate(instruction_list):
         if index % 2 == 0:
             santa_inst.append(inst)
         else:
             robot_inst.append(inst)
 
-    houses_coor = [(0, 0)]
-    for i in santa_inst:
-        old_spot = houses_coor[-1]
-        if i == ">":
-            new_spot = (old_spot[0] + 1, old_spot[1])
-        elif i == "<":
-            new_spot = (old_spot[0] - 1, old_spot[1])
-        elif i == "v":
-            new_spot = (old_spot[0], old_spot[1] - 1)
-        elif i == "^":
-            new_spot = (old_spot[0], old_spot[1] + 1)
-        houses_coor.append(new_spot)
+    santa_start_pos= (0, 0)
+    robot_start_pos = (0, 0)
+    visited_houses = {(0, 0)}
 
-    houses_coor2 = [(0, 0)]
+    for i in santa_inst:
+        if i == ">":
+            santa_start_pos = (santa_start_pos[0] + 1, santa_start_pos[1])
+        elif i == "<":
+            santa_start_pos = (santa_start_pos[0] - 1, santa_start_pos[1])
+        elif i == "v":
+            santa_start_pos = (santa_start_pos[0], santa_start_pos[1] - 1)
+        elif i == "^":
+            santa_start_pos = (santa_start_pos[0], santa_start_pos[1] + 1)
+        visited_houses.add(santa_start_pos)
+
     for j in robot_inst:
-        old_spot = houses_coor2[-1]
         if j == ">":
-            new_spot = (old_spot[0] + 1, old_spot[1])
+            robot_start_pos = (robot_start_pos[0] + 1, robot_start_pos[1])
         elif j == "<":
-            new_spot = (old_spot[0] - 1, old_spot[1])
+            robot_start_pos = (robot_start_pos[0] - 1, robot_start_pos[1])
         elif j == "v":
-            new_spot = (old_spot[0], old_spot[1] - 1)
+            robot_start_pos = (robot_start_pos[0], robot_start_pos[1] - 1)
         elif j == "^":
-            new_spot = (old_spot[0], old_spot[1] + 1)
-        houses_coor2.append(new_spot)
-    joined_list = houses_coor +houses_coor2
-    unique_houses = set(joined_list)
-    print(f"Part 2: {len(unique_houses)}")
+            robot_start_pos = (robot_start_pos[0], robot_start_pos[1] + 1)
+        visited_houses.add(robot_start_pos)
+
+    print(f"Part 2: {len(visited_houses)}")
 
 
 part1()
