@@ -28,8 +28,27 @@ def part1():
         elif double_letter(name) and three_vowels(name):
             nice_list.append(name)
 
-    print(f"Total names: {len(name_list)}")
-    print(f"Naughty: {len(naughty_list)}")
-    print(f"Nice: {len(nice_list)}")
-    
+    print(f"Part 1: {len(nice_list)}")
+
+def part2():
+    nice_list_2 = []
+    def has_repeating_pair(name):
+        for i in range(len(name) - 1):
+            pair = name[i:i + 2]
+            if pair in name[i + 2:]:
+                return True
+        return False
+
+    def has_repeating_letter_with_gap(name):
+        for i in range(len(name) - 2):
+            if name[i] == name[i + 2]:
+                return True
+        return False
+
+    for name in name_list:
+        if has_repeating_pair(name) and has_repeating_letter_with_gap(name):
+            nice_list_2.append(name)
+
+    print(f"Part 2: {len(nice_list_2)}")
 part1()
+part2()
