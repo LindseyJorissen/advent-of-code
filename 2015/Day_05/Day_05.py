@@ -1,4 +1,3 @@
-name_list = []
 with open("input.txt", "r") as data:
     name_list = [row.strip() for row in data]
 
