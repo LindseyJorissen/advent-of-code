@@ -1,6 +1,7 @@
-instruction_list = []
 with open("input.txt", "r") as data:
     instruction_list = list(data.read().strip())
+
+
 def part1():
     houses_coor = [(0, 0)]
     for i in instruction_list:

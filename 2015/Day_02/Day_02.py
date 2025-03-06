@@ -1,9 +1,7 @@
 import re
-gift_list = []
 
 with open("input.txt","r") as data:
-    for line in data:
-        gift_list.append(line.strip())
+    gift_list = [line.strip() for line in data]
 
 def part1():
     total_squarefeet = 0
